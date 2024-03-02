@@ -1,0 +1,18 @@
+{
+    "name": "andreapozza/prestashop-legacy-module-form",
+    "type": "prestashop-utility",
+    "autoload": {
+        "psr-4": {
+            "Andreapozza\\PrestashopLegacyModuleForm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrea Pozza",
+            "email": "andreapozza@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    }
+}
