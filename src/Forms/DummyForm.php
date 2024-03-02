@@ -10,11 +10,11 @@ class DummyForm extends AbstractConfigurationForm
 {
     protected function fields()
     {
-        // yield SwitchField::make(Configuration::DUMMY, $this->module->l('Dummy switch', 'DummyForm'))->toArray();
+        // yield SwitchField::make(Configuration::DUMMY, 'Dummy switch')->toArray();
 
         // yield [
         //     'type' => 'text',
-        //     'label' => $this->module->l('Dummy input', 'DummyForm'),
+        //     'label' => 'Dummy input',
         //     'name' => Configuration::DUMMY,
         //     'required' => true
         // ];
