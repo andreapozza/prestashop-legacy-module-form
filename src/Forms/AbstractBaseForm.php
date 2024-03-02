@@ -147,7 +147,7 @@ abstract class AbstractBaseForm
     protected function getConfigValues($fields)
     {
         Configuration::loadConfiguration();
-        return array_reduce($fields, function($carry, $item) {
+        return array_reduce($fields ?? [], function($carry, $item) {
             if (array_key_exists('lang', $item) && $item['lang']) {
                 $values = Configuration::getConfigInMultipleLangs($item['name']);
                 return array_merge($carry, [ $item['name'] => $values ]);
@@ -160,7 +160,7 @@ abstract class AbstractBaseForm
 
     public function handleRequest()
     {
-        foreach ($this->fields as $field) {
+        foreach ($this->fields ?? [] as $field) {
             if (! Tools::isSubmit($field['name']) && ! $this->isFieldMultiLang($field)) {
                 continue;
             }
