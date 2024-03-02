@@ -15,10 +15,15 @@ class Configuration extends ConfigurationCore
     {
         if (preg_match('/^get(.+)/', $method, $matches)) {
             $config = strtoupper(preg_replace('/(?<!^)[A-Z]/', '_$0', $matches[1]));
-            $constant = self::class.'::'.$config;
+            $class = get_called_class();
+            $constant = $class.'::'.$config;
+            if (! defined($constant)) {
+                $class = self::class;
+                $constant = $class.'::'.$config;
+            }
             if (defined($constant)) {
                 array_unshift($arguments, constant($constant));
-                return call_user_func_array([self::class, 'get'], $arguments);
+                return call_user_func_array([$class, 'get'], $arguments);
             }
         }
     }
