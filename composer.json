@@ -1,6 +1,7 @@
 {
     "name": "andreapozza/prestashop-legacy-module-form",
     "type": "prestashop-utility",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Andreapozza\\PrestashopLegacyModuleForm\\": "src/"
