@@ -35,7 +35,9 @@ abstract class AbstractConfigurationForm extends AbstractBaseForm
 
     protected function setModule()
     {
-        $module_name = explode(DIRECTORY_SEPARATOR, str_replace(_PS_MODULE_DIR_, '', __DIR__))[0];
-        $this->module = Module::getInstanceByName($module_name);
+        $called_class = get_called_class();
+        $reflector = new \ReflectionClass($called_class);
+        $module_name = explode(DIRECTORY_SEPARATOR, str_replace(_PS_MODULE_DIR_, '', $reflector->getFileName()))[0];
+        $this->module = \Module::getInstanceByName($module_name);
     }
 }
